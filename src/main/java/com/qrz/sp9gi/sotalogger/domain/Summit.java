@@ -13,7 +13,7 @@ public class Summit {
     private int summitPoints;
 
     @OneToOne
-    private Region region;
+    private Activation activation;
 
     public Long getId() {
         return id;
@@ -47,11 +47,11 @@ public class Summit {
         this.summitPoints = summitPoints;
     }
 
-    public Region getRegion() {
-        return region;
+    public Activation getActivation() {
+        return activation;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setActivation(Activation activation) {
+        this.activation = activation;
     }
 }

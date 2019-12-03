@@ -19,7 +19,7 @@ public class Activation {
     private Notes notes;
 
     @OneToOne
-    private Region region;
+    private Summit summit;
 
     @OneToMany(mappedBy = "activation")
     private Set<Band> bands;
@@ -56,12 +56,12 @@ public class Activation {
         this.notes = notes;
     }
 
-    public Region getRegion() {
-        return region;
+    public Summit getSummit() {
+        return summit;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setSummit(Summit summit) {
+        this.summit = summit;
     }
 
     public Set<Band> getBands() {
