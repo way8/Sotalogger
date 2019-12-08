@@ -1,8 +1,8 @@
 package com.qrz.sp9gi.sotalogger.controllers;
 
-import com.qrz.sp9gi.sotalogger.domain.RadioHam;
-import com.qrz.sp9gi.sotalogger.repositories.RadioHamRepository;
+import com.qrz.sp9gi.sotalogger.services.ActivationService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
@@ -10,18 +10,16 @@ import java.util.Optional;
 @Controller
 public class IndexController {
 
-    private RadioHamRepository radioHamRepository;
+    private final ActivationService activationService;
 
-    public IndexController(RadioHamRepository radioHamRepository) {
-        this.radioHamRepository = radioHamRepository;
+    public IndexController(ActivationService activationService) {
+        this.activationService = activationService;
     }
 
     @RequestMapping({"", "/", "/index"})
-    public String getIndexPage(){
+    public String getIndexPage(Model model){
 
-        Optional<RadioHam> radioHamOptional = radioHamRepository.findByCallsign("SP9GI");
-
-        System.out.println("Callsign id is:" + radioHamOptional.get().getId());
+        model.addAttribute("activations", activationService.getActivations());
 
         return "index";
     }
