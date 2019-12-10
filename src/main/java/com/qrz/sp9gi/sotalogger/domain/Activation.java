@@ -11,6 +11,7 @@ public class Activation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String description;
     private String activatorCallsign;
     private Date Date;
 
@@ -24,12 +25,22 @@ public class Activation {
     @OneToMany(mappedBy = "activation")
     private Set<Band> bands;
 
+
+    //setters and getters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getActivatorCallsign() {

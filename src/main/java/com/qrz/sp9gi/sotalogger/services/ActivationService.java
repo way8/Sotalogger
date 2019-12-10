@@ -7,8 +7,10 @@ import java.util.Set;
 
 public interface ActivationService {
 
-Set<Activation> getActivations();
+    Set<Activation> getActivations();
 
     Activation findById(Long l);
+
+    Activation save(Activation activation);
 
 }

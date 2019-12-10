@@ -25,14 +25,20 @@ public class ActivationServicesImpl implements ActivationService {
     }
 
     @Override
-    public Activation findById(Long l){
+    public Activation findById(Long l) {
 
         Optional<Activation> activationOptional = activationRepository.findById(l);
 
-        if (!activationOptional.isPresent()){
+        if (!activationOptional.isPresent()) {
             throw new RuntimeException("Activation not Found!");
         }
-
         return activationOptional.get();
+    }
+
+    @Override
+    public Activation save(Activation activation) {
+        Activation savedActivation = activationRepository.save(activation);
+
+        return savedActivation;
     }
 }
