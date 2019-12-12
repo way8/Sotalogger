@@ -18,7 +18,7 @@ public class ActivationController {
         this.activationService = activationService;
     }
 
-    @RequestMapping("/activation/show/{id}")
+    @RequestMapping("/activation/{id}/show")
     public String ShowById(@PathVariable String id, Model model) {
 
         model.addAttribute("activation", activationService.findById(Long.valueOf(id)));
@@ -33,11 +33,20 @@ public class ActivationController {
         return "activation/activationform";
     }
 
+    @RequestMapping("/activation/{id}/update")
+    public String updateActivation(@PathVariable String id, Model model) {
+
+        model.addAttribute("activation", activationService.findById(Long.valueOf(id)));
+
+        return "activation/activationform";
+    }
+
+
     @PostMapping
     @RequestMapping("activation")
     public String saveOrUpdate(@ModelAttribute Activation activation) {
         Activation savedActivation = activationService.save(activation);
-        return "redirect:/activation/show/" + activation.getId();
+        return "redirect:/activation/" + savedActivation.getId() + "/show/";
 
     }
 }
