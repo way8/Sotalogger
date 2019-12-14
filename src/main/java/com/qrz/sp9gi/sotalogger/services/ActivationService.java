@@ -13,4 +13,5 @@ public interface ActivationService {
 
     Activation save(Activation activation);
 
+    void deleteById(Long idToDelete);
 }

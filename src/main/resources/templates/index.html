@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Recipe Home</title>
+    <title>Home</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -34,23 +34,26 @@
                                 <th>ID</th>
                                 <th>Description</th>
                                 <th>View</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tr th:remove="all">
                                 <td>123</td>
-                                <td>Tasty Goodnees 1</td>
+                                <td>Act 2</td>
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:remove="all">
-                                <td>12333</td>
-                                <td>Tasty Goodnees 2</td>
+                                <td>123</td>
+                                <td>Act 2</td>
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:each="activation : ${activations}">
                                 <td th:text="${activation.id}">334</td>
                                 <td th:text="${activation.activatorCallsign}"></td>
                                 <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/show'}">View</a></td>
-                                <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/update'}">View</a></td>
+                                <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/update'}">Update</a></td>
+                                <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/delete'}">Delete</a></td>
                             </tr>
                         </table>
                     </div>

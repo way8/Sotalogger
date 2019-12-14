@@ -64,7 +64,11 @@ public class Activation {
     }
 
     public void setNotes(Notes notes) {
-        this.notes = notes;
+        if (notes != null) {
+            this.notes = notes;
+            //przypisuje activation_ID do notatki
+            notes.setActivation(this);
+        }
     }
 
     public Summit getSummit() {

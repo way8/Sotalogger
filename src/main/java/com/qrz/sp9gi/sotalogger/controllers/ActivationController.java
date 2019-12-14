@@ -4,10 +4,7 @@ import com.qrz.sp9gi.sotalogger.domain.Activation;
 import com.qrz.sp9gi.sotalogger.services.ActivationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ActivationController {
@@ -18,6 +15,7 @@ public class ActivationController {
         this.activationService = activationService;
     }
 
+    @GetMapping
     @RequestMapping("/activation/{id}/show")
     public String ShowById(@PathVariable String id, Model model) {
 
@@ -26,6 +24,7 @@ public class ActivationController {
         return "activation/show";
     }
 
+    @GetMapping
     @RequestMapping("activation/new")
     public String newActivation(Model model) {
         model.addAttribute("activation", new Activation());
@@ -33,6 +32,7 @@ public class ActivationController {
         return "activation/activationform";
     }
 
+    @GetMapping
     @RequestMapping("/activation/{id}/update")
     public String updateActivation(@PathVariable String id, Model model) {
 
@@ -49,4 +49,12 @@ public class ActivationController {
         return "redirect:/activation/" + savedActivation.getId() + "/show/";
 
     }
+    @GetMapping
+    @RequestMapping("/activation/{id}/delete")
+    public String deleteById(@PathVariable String id){
+
+        activationService.deleteById(Long.valueOf(id));
+        return "redirect:/";
+    }
+
 }

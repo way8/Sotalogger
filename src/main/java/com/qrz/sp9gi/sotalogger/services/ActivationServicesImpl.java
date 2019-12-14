@@ -41,4 +41,9 @@ public class ActivationServicesImpl implements ActivationService {
 
         return savedActivation;
     }
+
+    @Override
+    public void deleteById(Long idToDelete) {
+        activationRepository.deleteById(idToDelete);
+    }
 }

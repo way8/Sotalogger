@@ -10,7 +10,7 @@ public class Notes {
     private Long id;
 
     @Lob
-    private String notes;
+    private String activationNotes;
 
     @OneToOne
     private Activation activation;
@@ -23,12 +23,12 @@ public class Notes {
         this.id = id;
     }
 
-    public String getNotes() {
-        return notes;
+    public String getActivationNotes() {
+        return activationNotes;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setActivationNotes(String activationNotes) {
+        this.activationNotes = activationNotes;
     }
 
     public Activation getActivation() {
