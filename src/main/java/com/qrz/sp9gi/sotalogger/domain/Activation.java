@@ -15,11 +15,11 @@ public class Activation {
     private String activatorCallsign;
     private Date Date;
 
-    //Cascade: przy skasowaniu aktywacji kasuje również notatkę
+    //Cascade: przy skasowaniu aktywacji kasuje również notatkę, podobnie przy zapisie - zapisując aktywacje zapisuejmy też notatkę
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Summit summit;
 
     @OneToMany(mappedBy = "activation")

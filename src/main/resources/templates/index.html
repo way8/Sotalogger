@@ -49,8 +49,8 @@
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:each="activation : ${activations}">
-                                <td th:text="${activation.id}">334</td>
-                                <td th:text="${activation.activatorCallsign}"></td>
+                                <td th:text="${activation.id}">id</td>
+                                <td th:text="${activation.activatorCallsign}">call</td>
                                 <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/show'}">View</a></td>
                                 <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/update'}">Update</a></td>
                                 <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/delete'}">Delete</a></td>
