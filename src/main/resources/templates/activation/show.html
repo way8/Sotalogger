@@ -90,6 +90,28 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title" >Contacts</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <tr th:each="band : ${activation.bands}">
+                                    <td th:text="${band.band}">id</td>
+                                    <th:block th:each="ham : ${band.radioHams}">
+                                        <td th:text="${ham.callsign}">id</td>
+                                        <td th:text="${ham.qth}">qth</td>
+                                    </th:block>
+
+                                    </tr>
+                                </tr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

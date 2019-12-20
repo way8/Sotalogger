@@ -1,6 +1,7 @@
 package com.qrz.sp9gi.sotalogger.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,7 +19,7 @@ public class Band {
     @ManyToMany
     @JoinTable(name = "band_radio_ham", joinColumns = @JoinColumn(name = "band_id"),
             inverseJoinColumns = @JoinColumn(name ="radio_ham_id" ))
-    private Set<RadioHam> radioHams;
+    private Set<RadioHam> radioHams = new HashSet<>();
 
     public Long getId() {
         return id;

@@ -2,6 +2,7 @@ package com.qrz.sp9gi.sotalogger.domain;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,7 @@ public class Activation {
     private Summit summit;
 
     @OneToMany(mappedBy = "activation")
-    private Set<Band> bands;
+    private Set<Band> bands = new HashSet<>();
 
 
     //setters and getters

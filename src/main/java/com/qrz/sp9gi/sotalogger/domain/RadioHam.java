@@ -13,7 +13,7 @@ public class RadioHam {
     private String callsign;
     private String qth;
 
-    @ManyToMany(mappedBy = "band")
+    @ManyToMany(mappedBy = "radioHams")
     private Set<Band> bands;
 
     public Long getId() {
