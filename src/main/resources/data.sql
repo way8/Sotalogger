@@ -11,10 +11,13 @@ INSERT INTO activation (description, DATE,ACTIVATOR_CALLSIGN, summit_id, notes_i
 INSERT INTO activation (description, DATE,ACTIVATOR_CALLSIGN) VALUES ('aktywacja 2', '2009-12-01','SP9OZI/P');
 
 INSERT INTO band (band, activation_id) VALUES ('7MHz', 1);
+INSERT INTO band (band, activation_id) VALUES ('28MHz', 1);
 INSERT INTO band (band, activation_id) VALUES ('14MHz', 2);
+
 
 INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (1, 1);
 INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (1, 2);
+INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (2, 1);
 INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (2, 3);
 INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (2, 4);
 

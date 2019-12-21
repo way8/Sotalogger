@@ -45,7 +45,7 @@
                                 <p th:text="${activation.summit.getSummitName()}">summit</p>
                             </div>
                         </div>
-                       </div>
+                    </div>
 
                 </div>
 
@@ -64,9 +64,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul>
-                                    <h5>Name: </h5><p th:text="${activation.summit.getSummitName()}">Lorem</p>
-                                    <h5>Reference: </h5><p th:text="${activation.summit.getSummitReference()}">Lorem</p>
-                                    <h5>Points: </h5> <p th:text="${activation.summit.getSummitPoints()}">Lorem</p>
+                                    <h5>Name: </h5>
+                                    <p th:text="${activation.summit.getSummitName()}">Lorem</p>
+                                    <h5>Reference: </h5>
+                                    <p th:text="${activation.summit.getSummitReference()}">Lorem</p>
+                                    <h5>Points: </h5>
+                                    <p th:text="${activation.summit.getSummitPoints()}">Lorem</p>
 
 
                                     <!--                                        <li th:each="summit : ${activation.summit}">-->
@@ -80,12 +83,24 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title" >Notes</h1>
+                        <h1 class="panel-title">Notes</h1>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <p th:text="${activation.notes.activationNotes}">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                                <p th:text="${activation.notes.activationNotes}">Lorem ipsum dolor sit amet,
+                                    consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+                                    sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+                                    massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
+                                    eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
+                                    nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
+                                    vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a,
+                                    tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
+                                    imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam
+                                    eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam
+                                    semper libero, sit amet adipiscing sem neque sed ipsum.</p>
                             </div>
                         </div>
                     </div>
@@ -93,28 +108,36 @@
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title" >Contacts</h1>
+                        <h1 class="panel-title">Contacts</h1>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-12">
-                                <tr th:each="band : ${activation.bands}">
-                                    <td th:text="${band.band}">id</td>
-                                    <th:block th:each="ham : ${band.radioHams}">
-                                        <td th:text="${ham.callsign}">id</td>
-                                        <td th:text="${ham.qth}">qth</td>
-                                    </th:block>
-
+                            <table class="table table-hover ">
+                                <thead class="thead-inverse">
+                                <div class="col-md-12">
+                                    <tr>
+                                        <th>Band</th>
+                                        <th>Callsign</th>
+                                        <th>QTH</th>
                                     </tr>
-                                </tr>
-                            </div>
+                                </thead>
+                                <th:block th:each="band : ${activation.bands}">
+                                    <tr th:each="ham : ${band.radioHams}">
+                                        <td th:text="${band.band}">band</td>
+                                        <td th:text="${ham.callsign}">callsign</td>
+                                        <td th:text="${ham.qth}">qth</td>
+                                    </tr>
+
+                                </th:block>
+                            </table>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
