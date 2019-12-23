@@ -56,7 +56,7 @@
                                 <h1 class="panel-title">Summit</h1>
                             </div>
                             <!--                                    <div class="col-md-1">-->
-                            <!--                                        <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${summit.id} + '/ingredients'}" role="button">View</a>-->
+                            <!--                                        <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${band.id} + '/ingredients'}" role="button">View</a>-->
                             <!--                                    </div>-->
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                     <p th:text="${activation.summit.getSummitPoints()}">Lorem</p>
 
 
-                                    <!--                                        <li th:each="summit : ${activation.summit}">-->
+                                    <!--                                        <li th:each="band : ${activation.band}">-->
                                     <!--                                            <td th:text="${}">id</td>-->
 
 
@@ -108,8 +108,15 @@
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title">Contacts</h1>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-11 ">
+                                <h1 class="panel-title">Contacts</h1>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#" th:href="@{'/activation/' + ${activation.id} + '/bands'}" role="button">View</a>
+                            </div>
+                        </div>
+                                            </div>
                     <div class="panel-body">
                         <div class="row">
                             <table class="table table-hover ">
