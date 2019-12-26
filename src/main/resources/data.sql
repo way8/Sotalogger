@@ -10,16 +10,21 @@ INSERT INTO summit (summit_reference, summit_name, summit_points) VALUES ('Sp/BZ
 INSERT INTO activation (description, DATE,ACTIVATOR_CALLSIGN, summit_id, notes_id) VALUES ('aktywacja 1', '2009-11-11','SP9GI/P', 1, 1);
 INSERT INTO activation (description, DATE,ACTIVATOR_CALLSIGN) VALUES ('aktywacja 2', '2009-12-01','SP9OZI/P');
 
-INSERT INTO band (band, activation_id) VALUES ('7MHz', 1);
-INSERT INTO band (band, activation_id) VALUES ('28MHz', 1);
-INSERT INTO band (band, activation_id) VALUES ('14MHz', 2);
 
 
-INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (1, 1);
-INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (1, 2);
-INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (2, 1);
-INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (2, 3);
-INSERT INTO band_radio_ham (band_id, radio_ham_id) VALUES (2, 4);
+
+INSERT INTO band (band_name) VALUES ('7MHz');
+INSERT INTO band (band_name) VALUES ('28MHz');
+INSERT INTO band (band_name) VALUES ('14MHz');
+
+INSERT INTO ACTIVATION_BANDS (ACTIVATION_ID, BANDS_ID) VALUES (1, 1);
+INSERT INTO ACTIVATION_BANDS (ACTIVATION_ID, BANDS_ID) VALUES (1, 2);
+
+INSERT INTO activation_radio_ham ( activation_id, radio_ham_id) VALUES (1, 1);
+INSERT INTO activation_radio_ham ( activation_id, radio_ham_id) VALUES (1, 2);
+INSERT INTO activation_radio_ham ( activation_id, radio_ham_id) VALUES (2, 1);
+INSERT INTO activation_radio_ham ( activation_id, radio_ham_id) VALUES (2, 3);
+INSERT INTO activation_radio_ham ( activation_id, radio_ham_id) VALUES (2, 4);
 
 UPDATE summit SET activation_id = 1 WHERE ID = 1;
 UPDATE notes SET activation_id = 1 WHERE ID = 1;

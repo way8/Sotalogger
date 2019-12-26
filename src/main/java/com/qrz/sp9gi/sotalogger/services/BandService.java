@@ -9,9 +9,9 @@ public interface BandService {
 
     Set<Band> getBand();
 
-    Band findById(Long l);
+    Band findById(Long activationId, Long bandId);
 
     Band save(Band Band);
 
-    void deleteById(Long idToDelete);
+    void deleteById(Long activationId, Long idToDelete);
 }

@@ -14,7 +14,7 @@ public class RadioHam {
     private String qth;
 
     @ManyToMany(mappedBy = "radioHams")
-    private Set<Band> bands;
+    private Set<Activation> activations;
 
     public Long getId() {
         return id;
@@ -40,11 +40,11 @@ public class RadioHam {
         this.qth = qth;
     }
 
-    public Set<Band> getBands() {
-        return bands;
+    public Set<Activation> getActivations() {
+        return activations;
     }
 
-    public void setBands(Set<Band> bands) {
-        this.bands = bands;
+    public void setActivations(Set<Activation> activations) {
+        this.activations = activations;
     }
 }

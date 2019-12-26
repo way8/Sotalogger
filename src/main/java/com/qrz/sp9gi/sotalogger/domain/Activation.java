@@ -23,9 +23,13 @@ public class Activation {
     @OneToOne(cascade = CascadeType.ALL)
     private Summit summit;
 
-    @OneToMany(mappedBy = "activation")
+    @OneToMany
     private Set<Band> bands = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "activation_radio_ham", joinColumns = @JoinColumn(name = "activation_id"),
+            inverseJoinColumns = @JoinColumn(name ="radio_ham_id" ))
+    private Set<RadioHam> radioHams = new HashSet<>();
 
     //setters and getters
     public Long getId() {
@@ -86,5 +90,13 @@ public class Activation {
 
     public void setBands(Set<Band> bands) {
         this.bands = bands;
+    }
+
+    public Set<RadioHam> getRadioHams() {
+        return radioHams;
+    }
+
+    public void setRadioHams(Set<RadioHam> radioHams) {
+        this.radioHams = radioHams;
     }
 }

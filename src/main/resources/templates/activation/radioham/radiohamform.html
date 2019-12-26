@@ -21,21 +21,29 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <!--/*@thymesVar id="ingredient" type="guru.springframework.commands.IngredientCommand"*/-->
-            <form  th:object="${band}" th:action="@{'/activation/' + ${band.id} + '/band'} " method="post">
+            <form  th:object="${ham}" th:action="@{'/activation/' + ${ham.id} + '/radioham'} " method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <div class="pannel-group">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h1 class="panel-title">Edit Band Information</h1>
+                            <h1 class="panel-title">Edit raioham Information</h1>
                         </div>
                         <div class="panel-body">
 
 
                             <div class="row">
+
+                                    <div class="col-md-3 form-group">
+                                        <label>Calsign</label>
+                                        <input type="text" class="form-control" th:field="*{callsign}"/>
+                                    </div>
                                 <div class="col-md-3 form-group">
-                                    <label>Description:</label>
-                                    <input type="text" class="form-control" th:field="*{band}"/>
+                                    <label>QTH</label>
+                                    <input type="text" class="form-control" th:field="*{qth}"/>
                                 </div>
+
+
+
                             </div>
                         </div>
                     </div>

@@ -30,7 +30,7 @@
                             <h1 class="panel-title">Bands</h1>
                         </div>
                         <div class="col-md-1">
-                            <a class="btn btn-default" href="#" th:href="@{'/activation/' + ${activation.id} +'/contact/new'}" role="button">New</a>
+                            <a class="btn btn-default" href="#" th:href="@{'/activation/' + ${activation.id} +'/band/new'}" role="button">New</a>
                         </div>
                     </div>
 
@@ -64,72 +64,11 @@
                             </tr>
                             <tr th:each="band : ${activation.bands}">
                                 <td th:text="${band.id}">334</td>
-                                <td th:text="${band.band}">Tasty Goodnees 3</td>
-                                <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/band/' + ${band.id} + '/show'}">View</a></td>
+                                <td th:text="${band.bandName}">Tasty Goodnees 3</td>
                                 <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/band/' + ${band.id} + '/update'}">Update</a></td>
                                 <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/band/' + ${band.id} + '/delete'}">Delete</a></td>
                             </tr>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container-fluid" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
-
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-md-11 ">
-                            <h1 class="panel-title">Bands</h1>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn btn-default" href="#" th:href="@{'/activation/' + ${activation.id} +'/radioham/new'}" role="button">New</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="panel-body">
-
-                    <div class="table-responsive" th:if="${not #lists.isEmpty(activation.bands)}">
-                        <table class="table table-hover ">
-                            <thead class="thead-inverse">
-                            <tr>
-                                <th>ID</th>
-                                <th>Description</th>
-                                <th>View</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
-                            </thead>
-                            <tr th:remove="all">
-                                <td>123</td>
-                                <td>Tasty Goodnees 1</td>
-                                <td><a href="#">View</a></td>
-                                <td><a href="#">Update</a></td>
-                                <td><a href="#">Delete</a></td>
-                            </tr>
-                            <tr th:remove="all">
-                                <td>12333</td>
-                                <td>Tasty Goodnees 2</td>
-                                <td><a href="#">View</a></td>
-                                <td><a href="#">Update</a></td>
-                                <td><a href="#">Delete</a></td>
-                            </tr>
-                            <th:block th:each="band : ${activation.bands}">
-                                <tr th:each="ham : ${band.radioHams}">
-                                    <td th:text="${ham.callsign}">callsign</td>
-                                    <td th:text="${ham.qth}">qth</td>
-                                    <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/contact/' + ${band.id} + '/show'}">View</a></td>
-                                    <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/contact/' + ${band.id} + '/update'}">Update</a></td>
-                                    <td><a href="#" th:href="@{'/activation/' + ${activation.id} + '/contact/' + ${band.id} + '/delete'}">Delete</a></td>
-                                </tr>
-
-                            </th:block>
-                           </table>
                     </div>
                 </div>
             </div>

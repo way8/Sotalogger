@@ -1,6 +1,8 @@
 package com.qrz.sp9gi.sotalogger.services;
 
+import com.qrz.sp9gi.sotalogger.domain.Activation;
 import com.qrz.sp9gi.sotalogger.domain.RadioHam;
+import com.qrz.sp9gi.sotalogger.repositories.ActivationRepository;
 import com.qrz.sp9gi.sotalogger.repositories.RadioHamRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,11 @@ import java.util.Set;
 public class RadioHamServicesImpl implements RadioHamService {
 
     private final RadioHamRepository radioHamRepository;
+    private final ActivationRepository activationRepository;
 
-    public RadioHamServicesImpl(RadioHamRepository radioHamRepository) {
+    public RadioHamServicesImpl(RadioHamRepository radioHamRepository, ActivationRepository activationRepository) {
         this.radioHamRepository = radioHamRepository;
+        this.activationRepository = activationRepository;
     }
 
     @Override
@@ -25,13 +29,17 @@ public class RadioHamServicesImpl implements RadioHamService {
     }
 
     @Override
-    public RadioHam findById(Long l) {
+    public RadioHam findById(Long activationId, Long hamId) {
 
-        Optional<RadioHam> radioHamOptional = radioHamRepository.findById(l);
+        Optional<Activation> activationOptional = activationRepository.findById(activationId);
 
-        if (!radioHamOptional.isPresent()) {
+        if (!activationOptional.isPresent()) {
             throw new RuntimeException("Activation not Found!");
         }
+        Activation activation = activationOptional.get();
+
+        Optional<RadioHam> radioHamOptional = activation.getRadioHams().stream().filter(radioHam -> radioHam.getId().equals(hamId)).findFirst();
+
         return radioHamOptional.get();
     }
 
@@ -43,7 +51,25 @@ public class RadioHamServicesImpl implements RadioHamService {
     }
 
     @Override
-    public void deleteById(Long idToDelete) {
-        radioHamRepository.deleteById(idToDelete);
+    public void deleteById(Long activationId, Long idToDelete)
+    {
+        Optional<Activation> activationOptional = activationRepository.findById(activationId);
+
+        if(activationOptional.isPresent()){
+            Activation activation = activationOptional.get();
+
+            Optional<RadioHam> radioHamOptional = activation
+                    .getRadioHams()
+                    .stream()
+                    .filter(radioHam -> radioHam.getId().equals(idToDelete))
+                    .findFirst();
+
+            if(radioHamOptional.isPresent()){
+                RadioHam radioHamToDelete = radioHamOptional.get();
+                radioHamToDelete.setActivations(null);
+                activation.getRadioHams().remove(radioHamOptional.get());
+                activationRepository.save(activation);
+            }
+        }
     }
 }

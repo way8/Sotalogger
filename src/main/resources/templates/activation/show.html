@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <h5>Summit</h5>
-                                <p th:text="${activation.summit.getSummitName()}">summit</p>
+                                <p th:text="${activation.summit.summitName}">summit</p>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <h1 class="panel-title">Summit</h1>
                             </div>
                             <!--                                    <div class="col-md-1">-->
-                            <!--                                        <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${band.id} + '/ingredients'}" role="button">View</a>-->
+                            <!--                                        <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${bandName.id} + '/ingredients'}" role="button">View</a>-->
                             <!--                                    </div>-->
                         </div>
                     </div>
@@ -65,14 +65,14 @@
                             <div class="col-md-12">
                                 <ul>
                                     <h5>Name: </h5>
-                                    <p th:text="${activation.summit.getSummitName()}">Lorem</p>
+                                    <p th:text="${activation.summit.summitName}">Lorem</p>
                                     <h5>Reference: </h5>
-                                    <p th:text="${activation.summit.getSummitReference()}">Lorem</p>
+                                    <p th:text="${activation.summit.summitReference}">Lorem</p>
                                     <h5>Points: </h5>
-                                    <p th:text="${activation.summit.getSummitPoints()}">Lorem</p>
+                                    <p th:text="${activation.summit.summitPoints}">Lorem</p>
 
 
-                                    <!--                                        <li th:each="band : ${activation.band}">-->
+                                    <!--                                        <li th:each="bandName : ${activation.bandName}">-->
                                     <!--                                            <td th:text="${}">id</td>-->
 
 
@@ -110,7 +110,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-11 ">
-                                <h1 class="panel-title">Contacts</h1>
+                                <h1 class="panel-title">Bands</h1>
                             </div>
                             <div class="col-md-1">
                                 <a class="btn btn-default" href="#" th:href="@{'/activation/' + ${activation.id} + '/bands'}" role="button">View</a>
@@ -127,12 +127,10 @@
                                         <th>Callsign</th>
                                         <th>QTH</th>
                                     </tr>
+                                </div>
                                 </thead>
                                 <th:block th:each="band : ${activation.bands}">
-                                    <tr th:each="ham : ${band.radioHams}">
-                                        <td th:text="${band.band}">band</td>
-                                        <td th:text="${ham.callsign}">callsign</td>
-                                        <td th:text="${ham.qth}">qth</td>
+                                    <td th:text="${band.bandName}">bandName</td>
                                     </tr>
 
                                 </th:block>
@@ -140,6 +138,40 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-11 ">
+                                <h1 class="panel-title">Radio Hams</h1>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#" th:href="@{'/activation/' + ${activation.id} + '/radiohams'}" role="button">View</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <table class="table table-hover ">
+                                <thead class="thead-inverse">
+                                <div class="col-md-12">
+                                    <tr>
+                                        <th>Callsign</th>
+                                        <th>QTH</th>
+                                    </tr>
+                                </div>
+                                </thead>
+                                <th:block th:each="ham : ${activation.radioHams}">
+                                    <td th:text="${ham.callsign}">bandName</td>
+                                    <td th:text="${ham.qth}">bandName</td>
+                                    </tr>
+
+                                </th:block>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
